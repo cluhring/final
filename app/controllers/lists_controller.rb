@@ -33,7 +33,7 @@ class ListsController < ApplicationController
       redirect_to lists_path
     else
       flash.notice = "Sorry, the #{@list.title} List cannot deleted because it is has not been archived!"
-      render :show
+      redirect_to lists_path
     end
   end
 
