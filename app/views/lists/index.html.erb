@@ -1,14 +1,33 @@
-<h1>All Lists</h1>
-
-<ul id="lists">
-	<% @lists.each do |list| %>
-		<% if list.archived? %>
-			<li>
-				<%= link_to list.title, list_path(list), class: 'list_title', id: "list_#{list.id}" %>
-			</li><br>
-		<% end %>
-	<% end %>
-	<li>
-		<%= link_to "Create a New List", new_list_path, class: "new_list" %>
-	</li><br>
-</ul>
+<div class="container">
+  <h1>All Lists</h1>
+  <div class="row">
+    <div class="panel-heading">
+    </div>
+      <table class="table">
+        <thead>
+          <tr class="filters">
+            <th><input type="text" id="list_name" class="form-control" placeholder="Name"></th>
+            <th><input type="text" class="form-control" placeholder="Active?" disabled></th>
+            <th><input type="submit" class="btn btn-default filter" id="filter-lists" value="Filter"></th>
+          </tr>
+        </thead>
+      <tbody class="all-lists">
+				<% @lists.each do |list| %>
+					<% if list.archived? %>
+	          <tr class="LISTS">
+	            <td class="id"><%= link_to list.title, list_path(list), class: 'list_title', id: "list_#{list.id}" %></td>
+	            <td class="name"><%= list.active? %></td>
+	            <td>
+								<%= link_to "Delete", list_path(list), method: :delete, data: {confirm: "Really delete the list?"} %>
+								<%= link_to "Edit", edit_list_path(list) %><br><br>
+	            </td>
+	          </tr>
+					<% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<li>
+	<%= link_to "Create a New List", new_list_path, class: "new_list" %>
+</li>
