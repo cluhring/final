@@ -18,7 +18,7 @@
 
 $(document).ready(function(){
 
-	function showBySearchTerm(listLinks, searchMatch){
+	function showBySearchName(listLinks, searchMatch){
 		listLinks.each(function (index, element){
 			if($(element).text().match(searchMatch)) {
 				$(element).show();
@@ -28,22 +28,80 @@ $(document).ready(function(){
 		});
 	}
 
-	function showAll(listLinks, searchMatch){
+	function showAllNames(listLinks, searchMatch){
 		listLinks.each(function (index, element){
 			$(element).show();
 		});
 	}
 
-	$('#filter-lists').click(function(){
+	$('#filter-lists1').click(function(){
 		var filterBy = $('#list_name').val()
 		var $listLinks = $('.all-lists .LISTS')
 		var searchMatch = new RegExp(filterBy, "i")
-		if($(this).val()==='Filter'){
-			showBySearchTerm($listLinks, searchMatch);
+		if($(this).val()==='Filter Name'){
+			showBySearchName($listLinks, searchMatch);
 			$(this).val('Show All');
 		}else{
-			showAll($listLinks, searchMatch);
-			$(this).val('Filter');
+			showAllNames($listLinks, searchMatch);
+			$(this).val('Filter Name');
+		}
+	});
+
+	function showBySearchStatus(listLinks, searchMatch){
+		listLinks.each(function (index, element){
+			if($(element).text().match(searchMatch)) {
+				$(element).show();
+			} else {
+				$(element).hide();
+			}
+		});
+	}
+
+	function showAllStatus(listLinks, searchMatch){
+		listLinks.each(function (index, element){
+			$(element).show();
+		});
+	}
+
+	$('#filter-lists2').click(function(){
+		var filterBy = $('#list_status').val()
+		var $listLinks = $('.all-lists .LISTS')
+		var searchMatch = new RegExp(filterBy, "i")
+		if($(this).val()==='Filter Status'){
+			showBySearchStatus($listLinks, searchMatch);
+			$(this).val('Show All');
+		}else{
+			showAllStatus($listLinks, searchMatch);
+			$(this).val('Filter Status');
+		}
+	});
+
+	function showBySearchDate(listLinks, searchMatch){
+		listLinks.each(function (index, element){
+			if($(element).text().match(searchMatch)) {
+				$(element).show();
+			} else {
+				$(element).hide();
+			}
+		});
+	}
+
+	function showAllDates(listLinks, searchMatch){
+		listLinks.each(function (index, element){
+			$(element).show();
+		});
+	}
+
+	$('#filter-lists3').click(function(){
+		var filterBy = $('#list_date').val()
+		var $listLinks = $('.all-lists .LISTS')
+		var searchMatch = new RegExp(filterBy, "i")
+		if($(this).val()==='Filter Date'){
+			showBySearchDate($listLinks, searchMatch);
+			$(this).val('Show All');
+		}else{
+			showAllDates($listLinks, searchMatch);
+			$(this).val('Filter Date');
 		}
 	});
 

@@ -7,12 +7,14 @@
 	    </div>
 	    <table class="table">
 	      <thead>
-	        <tr class="filters">
-	          <th><input type="text" id="list_id" class="form-control" placeholder="Task #" disabled></th>
+					<tr class="filters">
+	          <th>
+	          <button class="btn btn-default filter" id="filter-lists1" name="Filter Name" value="Filter Name">Filter Name</button>
+	          <button class="btn btn-default filter" id="filter-lists3" name="Filter Status" value="Filter Status">Filter Status</button>
+	          <button class="btn btn-default filter" id="filter-lists2" name="Filter Date" value="Filter Date">Filter Date</button></th>
 	          <th><input type="text" id="list_name" class="form-control" placeholder="Name"></th>
-	          <th><input type="text" class="form-control" placeholder="Due Date" disabled></th>
-	          <th><input type="text" class="form-control" placeholder="Status" disabled></th>
-	          <th><input type="submit" class="btn btn-default filter" id="filter-lists" value="Filter"></th>
+	          <th><input type="text" id="list_date" class="form-control" placeholder="Due Date"></th>
+	          <th><input type="text" id="list_status" class="form-control" placeholder="Status"></th>
 	        </tr>
 	      </thead>
 				<%= render partial: 'lists/task', collection: @list.tasks %>
