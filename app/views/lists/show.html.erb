@@ -8,17 +8,17 @@
 	    <table class="table">
 	      <thead>
 	        <tr class="filters">
-	          <th><input type="text" id="list_id" class="form-control" placeholder="Task #"></th>
+	          <th><input type="text" id="list_id" class="form-control" placeholder="Task #" disabled></th>
 	          <th><input type="text" id="list_name" class="form-control" placeholder="Name"></th>
 	          <th><input type="text" class="form-control" placeholder="Due Date" disabled></th>
 	          <th><input type="text" class="form-control" placeholder="Status" disabled></th>
 	          <th><input type="submit" class="btn btn-default filter" id="filter-lists" value="Filter"></th>
 	        </tr>
 	      </thead>
+				<%= render partial: 'lists/task', collection: @list.tasks %>
 			</table>
 		</div>
 	</div>
-<%= render partial: 'lists/task', collection: @list.tasks %>
 </p>
   Add a Task:
 <%= render partial: 'tasks/form' %><br><br>
