@@ -1,0 +1,6 @@
+<div>
+  <% if task.incomplete? %>
+  	<h4>Task: <%= link_to task.title, list_task_path(@list.id, task.id)%></h4>
+  	<p class="task"><%= task.true? %></p>
+  <% end %>
+</div>

@@ -2,7 +2,7 @@ class CreateLists < ActiveRecord::Migration
   def change
     create_table :lists do |t|
       t.string :title
-      t.string :status, default: "unarchived"
+      t.boolean :status, default: false
 
       t.timestamps null: false
     end

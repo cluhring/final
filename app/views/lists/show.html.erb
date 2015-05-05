@@ -1,0 +1,11 @@
+<h1><%= @list.title %></h1>
+<p>
+<%= link_to "<< Back to Lists Index", lists_path %>
+<%= link_to "DELETE", list_path(@list), method: :delete, data: {confirm: "Really delete the list?"} %>
+<%= link_to "edit", edit_list_path(@list) %><br><br>
+	My Incomplete Tasks:
+<%= render partial: 'lists/task', collection: @list.tasks %>
+
+</p>
+  Add a Task:
+	<%= render partial: 'tasks/form' %>

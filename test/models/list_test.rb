@@ -4,23 +4,23 @@ class ListTest < ActiveSupport::TestCase
   attr_reader :list
 
   def setup
-    @list = List.create(title: "Chris' ToDos", status: "unarchived")
+    @list = List.create(title: "Chris' ToDos", status: false)
     @task1 = Task.create(title: "Task1",
-                         status: "procrastinating",
+                         status: false,
                          description: "pass yo test",
-                         due_date: 05/05/15,
+                         due_date: "2012-03-06 00:00:00 UTC",
                          list_id: list.id)
     @task2 = Task.create(title: "Task2",
-                         status: "procrastinating",
+                         status: false,
                          description: "pass yo test",
-                         due_date: 05/05/15,
+                         due_date: "2012-03-06 00:00:00 UTC",
                          list_id: list.id)
   end
 
   def test_list_is_valid
     assert list.valid?
     assert_equal "Chris' ToDos", list.title
-    assert_equal "unarchived", list.status
+    assert_equal false, list.status
   end
 
   def test_list_can_have_many_tasks

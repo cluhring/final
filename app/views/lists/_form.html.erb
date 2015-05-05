@@ -1,0 +1,19 @@
+<%= form_for(@list, html: {multipart: true}) do |f| %>
+
+	<ul>
+		<% @list.errors.full_messages.each do |error| %>
+		<li><%= error %></li>
+	<% end %>
+	</ul>
+	<p>
+		<%= f.label :title %><br />
+		<%= f.text_field :title %>
+	</p>
+  <p>
+    <%= f.label "Archive?" %><br />
+    <%= check_box(:list, :status, {}, true)%>
+  </p>
+	<p>
+		<%= f.submit %>
+	</p>
+	<% end %>

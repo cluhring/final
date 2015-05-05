@@ -1,0 +1,14 @@
+<h1>All Lists</h1>
+
+<ul id="lists">
+	<% @lists.each do |list| %>
+		<% if list.archived? %>
+			<li>
+				<%= link_to list.title, list_path(list), class: 'list_title', id: "list_#{list.id}" %>
+			</li><br>
+		<% end %>
+	<% end %>
+	<li>
+		<%= link_to "Create a New List", new_list_path, class: "new_list" %>
+	</li><br>
+</ul>

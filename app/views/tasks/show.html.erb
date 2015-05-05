@@ -1,0 +1,7 @@
+<div id="task">
+  <strong>Task:</strong> <%= @task.title %><br>
+  <strong>Description: </strong><%= @task.description %><br>
+  <strong>Status: </strong><%= @task.true? %><br>
+  <strong>Due Date: </strong><%= @task.due_date %><br>
+</div>
+<%= link_to "Edit Task", edit_list_task_path(id: @task.id) %>
