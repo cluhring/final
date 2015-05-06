@@ -63,7 +63,7 @@ $(document).ready(function(){
 		});
 	}
 
-	$('#filter-lists2').click(function(){
+	$('#filter-lists3').click(function(){
 		var filterBy = $('#list_status').val()
 		var $listLinks = $('.all-lists .LISTS')
 		var searchMatch = new RegExp(filterBy, "i")
@@ -92,7 +92,7 @@ $(document).ready(function(){
 		});
 	}
 
-	$('#filter-lists3').click(function(){
+	$('#filter-lists2').click(function(){
 		var filterBy = $('#list_date').val()
 		var $listLinks = $('.all-lists .LISTS')
 		var searchMatch = new RegExp(filterBy, "i")

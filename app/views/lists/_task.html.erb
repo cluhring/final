@@ -1,9 +1,0 @@
-<tbody class="all-lists">
-  <tr class="LISTS">
-    <td class="id"><h4>Task <%=task.id%>:
-    <td class="name"><%= link_to task.title, list_task_path(@list.id, task.id)%></td>
-    <td class="due_date"><%= task.due_date %></td>
-    <td class="status"><%= task.true? %></td>
-    <td></td>
-  </tr>
-</tbody>
