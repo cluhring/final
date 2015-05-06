@@ -106,4 +106,21 @@ $(document).ready(function(){
 		}
 	});
 
+
+	$(".complete-task").click(function(e) {
+		e.preventDefault();
+		var update_status = $(this).parents(".LISTS").find(".status");
+		$.ajax({
+				data: { status: "change" },
+				type: 'update_status',
+				url: "/lists/" + update_status,
+			});
+			// debugger;
+		updateTask(this);
+	});
+
+	function updateTask(button) {
+	  $(button).parents('div').remove()
+	};
+
 });

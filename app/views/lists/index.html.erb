@@ -1,14 +1,14 @@
 <div class="container">
-  <h1>All Lists</h1>
+  <h1>Current Lists</h1>
   <div class="row">
     <div class="panel-heading">
     </div>
       <table class="table">
         <thead>
           <tr class="filters">
-            <th><input type="text" id="list_name" class="form-control" placeholder="Name"></th>
-            <th><input type="text" class="form-control" placeholder="Active?" disabled></th>
-            <th><input type="submit" class="btn btn-default filter" id="filter-lists" value="Filter"></th>
+            <th>Name</th>
+            <th>Active?</th>
+            <th></th>
           </tr>
         </thead>
       <tbody class="all-lists">
@@ -32,5 +32,5 @@
 	<%= link_to "Create a New List", new_list_path, class: "new_list" %>
 </li>
 <li>
-  <%= link_to "See All List", archived_path, class: "archived" %>
+  <%= link_to "See All Lists", archived_path, class: "archived" %>
 </li>
