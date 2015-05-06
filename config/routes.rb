@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   resources :lists do
     resources :tasks
   end
+  post 'tasks/:id/delete_pic' => 'tasks#delete_pic', as: :delete_pic
+
 end

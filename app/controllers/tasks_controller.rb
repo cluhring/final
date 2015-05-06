@@ -21,7 +21,14 @@ class TasksController < ApplicationController
     redirect_to list_path(@task.list_id)
   end
 
+  def delete_pic
+    @task = Task.find(params[:id])
+    @task.pdf = nil
+    @task.save
+    redirect_to list_path(@task.list_id)
+  end
+
   def task_params
-    params.require(:task).permit(:title, :status, :description, :due_date)
+    params.require(:task).permit(:title, :status, :description, :due_date, :pdf)
   end
 end
