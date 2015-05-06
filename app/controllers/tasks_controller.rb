@@ -25,6 +25,11 @@ class TasksController < ApplicationController
     @list = List.find(params[:id])
     @task = Task.new
     @task.list_id = @list.id
+
+    @sorted_tasks = Task.where(nil)
+    sorting_params(params).each do |key, value|
+      @sorted_tasks = @list.tasks.public_send(key)
+    end
   end
 
   def delete_pic
@@ -33,6 +38,12 @@ class TasksController < ApplicationController
     @task.save
     redirect_to list_task_path(@task.list_id, @task.id)
   end
+
+  def sorting_params(params)
+    params.slice(:name_sort, :date_sort, :status_sort)
+  end
+
+  private
 
   def task_params
     params.require(:task).permit(:title, :status, :description, :due_date, :pdf)

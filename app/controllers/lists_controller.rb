@@ -16,6 +16,11 @@ class ListsController < ApplicationController
     @list = List.find(params[:id])
     @task = Task.new
     @task.list_id = @list.id
+
+    @sorted_tasks = Task.where(nil)
+    sorting_params(params).each do |key, value|
+      @sorted_tasks = @list.tasks.public_send(key)
+    end
   end
 
   def create
@@ -50,6 +55,10 @@ class ListsController < ApplicationController
     @list.update(list_params)
     flash.notice = "#{@list.title} List updated!"
     redirect_to lists_path
+  end
+
+  def sorting_params(params)
+    params.slice(:name_sort, :date_sort, :status_sort)
   end
 
   private

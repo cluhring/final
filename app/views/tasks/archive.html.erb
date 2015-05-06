@@ -14,17 +14,19 @@
 	          <input type="text" id="list_date" class="form-control" placeholder="Due Date">
 	          <button class="btn btn-default filter" id="filter-lists3" name="Filter Status" value="Filter Status">Filter Status</button>
 	          <input type="text" id="list_status" class="form-control" placeholder="Status"><br><br>
-	          <th>Task #</th>
-						<th>Name</th>
-						<th>Date</th>
-						<th>Status</th>
+						<th>Task #</th>
+						<th><%= link_to "Name", archive_path(name_sort: "a-z")%></th>
+						<th>Description</th>
+						<th><%= link_to "Date", archive_path(date_sort: "a-z")%></th>
+						<th><%= link_to "Status", archive_path(status_sort: "a-z")%></th>
 	        </tr>
 	      </thead>
 				<tbody class="all-lists">
-					<% @list.tasks.each do |task| %>
+					<% @sorted_tasks.each do |task| %>
   				  <tr class="LISTS">
   				    <td class="id"><h4>Task <%=task.id%>:
   				    <td class="name"><%= link_to task.title, list_task_path(@list.id, task.id)%></td>
+							<td class="description"><%= task.description %></td>
   				    <td class="due_date"><%= task.due_date %></td>
   				    <td class="status"><%= task.true? %></td>
 				    </tr>

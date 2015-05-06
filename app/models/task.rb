@@ -16,12 +16,22 @@ class Task < ActiveRecord::Base
   end
 
   def pictured?
-    # require 'pry' ; binding.pry
-    # pdf.instance.status == false
     pdf.instance.pdf_file_name != nil
   end
 
   def incomplete?
     status == false
+  end
+
+  def self.name_sort
+    all.order(title: :asc)
+  end
+
+  def self.date_sort
+    all.order(due_date: :asc)
+  end
+
+  def self.status_sort
+    all.order(status: :asc)
   end
 end
