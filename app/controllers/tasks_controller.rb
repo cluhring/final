@@ -18,14 +18,14 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @task.update(task_params)
     flash.notice = "#{@task.title} Task updated!"
-    redirect_to list_path(@task.list_id)
+    redirect_to list_task_path(@task.list_id, @task.id)
   end
 
   def delete_pic
     @task = Task.find(params[:id])
     @task.pdf = nil
     @task.save
-    redirect_to list_path(@task.list_id)
+    redirect_to list_task_path(@task.list_id, @task.id)
   end
 
   def task_params

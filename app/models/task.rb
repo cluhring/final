@@ -15,6 +15,12 @@ class Task < ActiveRecord::Base
     end
   end
 
+  def pictured?
+    # require 'pry' ; binding.pry
+    # pdf.instance.status == false
+    pdf.instance.pdf_file_name != nil
+  end
+
   def incomplete?
     status == false
   end
