@@ -21,19 +21,16 @@
 	        </tr>
 	      </thead>
 				<tbody class="all-lists">
-						<% @list.tasks.each do |task| %>
-							<% if task.incomplete? %>
-				  <tr class="LISTS">
-					    <td class="id"><h4>Task <%=task.id%>:
-					    <td class="name"><%= link_to task.title, list_task_path(@list.id, task.id)%></td>
-					    <td class="due_date"><%= task.due_date %></td>
-					    <td class="status"><%= task.true? %></td>
-							<% end %>
-						<% end %>
-				  </tr>
+					<% @list.tasks.each do |task| %>
+  				  <tr class="LISTS">
+  				    <td class="id"><h4>Task <%=task.id%>:
+  				    <td class="name"><%= link_to task.title, list_task_path(@list.id, task.id)%></td>
+  				    <td class="due_date"><%= task.due_date %></td>
+  				    <td class="status"><%= task.true? %></td>
+				    </tr>
+					<% end %>
 				</tbody>
 			</table>
-					<%= link_to "See All Tasks", archive_path, class: "archived" %>
 		</div>
 	</div>
 </p>

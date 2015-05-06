@@ -21,6 +21,12 @@ class TasksController < ApplicationController
     redirect_to list_task_path(@task.list_id, @task.id)
   end
 
+  def archive
+    @list = List.find(params[:id])
+    @task = Task.new
+    @task.list_id = @list.id
+  end
+
   def delete_pic
     @task = Task.find(params[:id])
     @task.pdf = nil

@@ -38,6 +38,7 @@ $(document).ready(function(){
 		var filterBy = $('#list_name').val()
 		var $listLinks = $('.all-lists .LISTS')
 		var searchMatch = new RegExp(filterBy, "i")
+		debugger;
 		if($(this).val()==='Filter Name'){
 			showBySearchName($listLinks, searchMatch);
 			$(this).val('Show All');
